@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.rav316.nullablevalue.autoconfigure.NullableValueAutoConfiguration,\
-io.github.rav316.nullablevalue.autoconfigure.NullableValueValidationAutoConfiguration
+io.github.rav316.nullablevalue.autoconfigure.NullableValueAutoConfiguration

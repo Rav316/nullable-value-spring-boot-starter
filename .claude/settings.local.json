@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew build:*)",
+      "Bash(./gradlew dependencies:*)",
+      "Bash(jar tf:*)",
+      "Bash(unzip:*)",
+      "Bash(jar -tf:*)",
+      "Bash(./gradlew test:*)",
+      "Bash(./gradlew clean build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix: conditional bean registration for optional dependencies\n\nUse @ConditionalOnClass to guard Jackson and Jakarta Validation beans\nso the starter doesn''t fail when optional dependencies are absent.\nJakarta Validation config isolated in a nested class to avoid\nNoClassDefFoundError at class-load time.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(git commit:*)",
+      "Bash(gh release create:*)"
+    ]
+  }
+}
