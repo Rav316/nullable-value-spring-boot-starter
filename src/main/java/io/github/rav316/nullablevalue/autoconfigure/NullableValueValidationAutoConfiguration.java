@@ -1,6 +1,5 @@
 package io.github.rav316.nullablevalue.autoconfigure;
 
-import io.github.rav316.nullablevalue.NullableValueExtractor;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +9,12 @@ import org.springframework.context.annotation.Bean;
 public class NullableValueValidationAutoConfiguration {
 
     @Bean
-    public NullableValueExtractor nullableValueExtractor() {
-        return new NullableValueExtractor();
+    public Object nullableValueExtractor() {
+        try {
+            Class<?> extractorClass = Class.forName("io.github.rav316.nullablevalue.NullableValueExtractor");
+            return extractorClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create NullableValueExtractor", e);
+        }
     }
 }
