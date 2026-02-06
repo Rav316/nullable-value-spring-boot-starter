@@ -1,0 +1,62 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'io.github.rav316'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withJavadocJar()
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jackson 3.x (tools.jackson)
+    compileOnly 'tools.jackson.core:jackson-databind:3.0.4'
+
+    // Jakarta Validation
+    compileOnly 'jakarta.validation:jakarta.validation-api:3.1.0'
+
+    // Spring Boot (для автоконфигурации)
+    compileOnly 'org.springframework.boot:spring-boot-autoconfigure:4.0.2'
+    compileOnly 'org.springframework.boot:spring-boot-jackson:4.0.2'
+    annotationProcessor 'org.springframework.boot:spring-boot-autoconfigure-processor:4.0.2'
+
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:4.0.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-web:4.0.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test:4.0.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-validation:4.0.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            pom {
+                name = 'NullableValue Spring Boot Starter'
+                description = 'Spring Boot starter for NullableValue wrapper to distinguish undefined, null and actual values in JSON'
+                url = 'https://github.com/rav316/nullable-value-spring-boot-starter'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+            }
+        }
+    }
+}
