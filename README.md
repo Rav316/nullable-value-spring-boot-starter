@@ -25,7 +25,7 @@ This is especially useful for **PATCH requests** in REST APIs where you need to 
 
 ```gradle
 dependencies {
-    implementation 'io.github.rav316:nullable-value-spring-boot-starter:1.0.0'
+    implementation 'io.github.rav316:nullable-value-spring-boot-starter:1.0.1'
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 <dependency>
     <groupId>io.github.rav316</groupId>
     <artifactId>nullable-value-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
