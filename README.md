@@ -21,16 +21,37 @@ This is especially useful for **PATCH requests** in REST APIs where you need to 
 
 ## Installation
 
-### Gradle
+### Add JitPack repository
 
+First, add the JitPack repository to your build configuration:
+
+**Gradle:**
+```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+
+**Maven:**
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+### Add dependency
+
+**Gradle:**
 ```gradle
 dependencies {
     implementation 'io.github.rav316:nullable-value-spring-boot-starter:1.0.0'
 }
 ```
 
-### Maven
-
+**Maven:**
 ```xml
 <dependency>
     <groupId>io.github.rav316</groupId>
